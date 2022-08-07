@@ -1,11 +1,23 @@
 import React, { useState } from 'react';
-import {Button,Modal,Form} from 'react-bootstrap';
+import { Button,Modal,Form } from 'react-bootstrap';
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import Login from "../pages/login";
 
 function Register() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleShowLogin = Login
+
+  function Switchtologin() {
+    setShow(false)
+    setShow(true)
+  }
+  // const handleNaviateToRegister = () => {
+  //   Navigate('/Login')
+  // }
 
   return (
     <>
@@ -32,7 +44,9 @@ function Register() {
                 Register
             </Button>
             <div>
-                <p>Already have an account ? klik <b>Here</b> </p>
+                <p>Already have an account ? klik 
+                  <a onClick={Switchtologin}><b>here</b> </a> 
+                </p>
             </div>
         </Form>
         </Modal.Body>
@@ -41,6 +55,7 @@ function Register() {
             Close
           </Button>
         </Modal.Footer> */}
+        <Login />
       </Modal>
     </>
   );

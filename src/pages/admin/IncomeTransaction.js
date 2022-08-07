@@ -5,6 +5,7 @@ import logowaysbuck from '../../assets/img/logowaysbuck.png'
 import '../../styles/tableIncomeTransaction.css'
 // import ProfilePhoto from '../../assets/img/profilephoto.png'
 import Profile from '../../assets/img/profile.png'
+// import NavbarAdmin from "../admin/NavbarAdmin";
 
 export default function IncomeTransaction() {
   return (
@@ -17,6 +18,7 @@ export default function IncomeTransaction() {
           <img className='profile-photo float-right-end' src={Profile} />
         </div>
     </div>
+    {/* <NavbarAdmin/> */}
     <div className='title-product mb-5 mt-5'>
         <h2>Income Transaction</h2>
     </div>
