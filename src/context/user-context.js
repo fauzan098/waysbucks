@@ -10,12 +10,12 @@ function reducer(user, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case "LOG IN":
+    case "LOG_IN":
       return {
         isLogin: true,
         user: payload,
       };
-    case "LOG OUT":
+    case "LOG_OUT":
       return {
         isLogin: false,
         user: {},

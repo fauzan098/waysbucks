@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import {Button,Modal,Form} from 'react-bootstrap';
-import Register from './register'
-import Login from './login'
 import { useContext } from 'react'
 import { Usercontext } from "../context/user-context";
 import { useNavigate } from 'react-router';
@@ -28,41 +26,31 @@ export default function AuthModal() {
     setShow(true)
   }
 
-  const [form, setForm] =useState({
-    name:'',
-    email: '',
-    password: '',
-  });
 
-  const {name, eamil, password} = form;
-
-  const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
 
   const navigate =useNavigate()
   const [state, dispatch] = useContext(Usercontext)
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    let status 
     const email = document.getElementById('emailinput').value
     const password = document.getElementById('passwordinput').value
 
-    let status 
     if (email === 'admin@mail.com'){
       status = 'admin'
       navigate('/admin')
     }else{
       status = 'user'
-      navigate('/')
+      navigate('/main')
     }
 
+    const data = {email, password, status}
+
     dispatch({
-      type : 'LOGIN_SUCCES',
-      payload : datas
+      type : 'LOG_IN',
+      payload : data
     })
     setShow(false)
   }
@@ -82,7 +70,7 @@ export default function AuthModal() {
         </Modal.Header> 
         <Modal.Body>
         <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3" >
                 <Form.Control 
                   className='inputProduct border-danger' 
                   type="email" 
@@ -91,7 +79,7 @@ export default function AuthModal() {
                   placeholder="Email" 
                   style={{width : '100%'}} />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3" >
                 <Form.Control 
                   className='inputProduct border-danger' 
                   type="password" 
@@ -104,7 +92,7 @@ export default function AuthModal() {
                 Login
             </Button>
             <div>
-              <p>Already have an account ? klik 
+              <p>Don't have an account ? klik 
                 <a onClick={Switchtologin} style={{cursor: 'pointer'}}><b> here</b> </a> 
               </p>
           </div>
@@ -118,13 +106,13 @@ export default function AuthModal() {
       </Modal.Header> 
       <Modal.Body>
       <Form>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" >
               <Form.Control className='inputProduct border-danger' type="email" name='email' placeholder="Email"  style={{width : '100%'}}/>
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3" >
               <Form.Control className='inputProduct border-danger' type="password" name='password' placeholder="Password" style={{width : '100%'}}/>
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3" >
               <Form.Control className='inputProduct border-danger' type="text" name='fullname' placeholder="Full Name" style={{width : '100%'}}/>
           </Form.Group>
           <Button className='float-sm-end bg-danger' variant="danger" type="submit">
