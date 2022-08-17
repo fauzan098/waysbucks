@@ -3,7 +3,7 @@ import {Button,Modal,Form} from 'react-bootstrap';
 import { useContext } from 'react'
 import { Usercontext } from "../context/user-context";
 import { useNavigate } from 'react-router';
-import datas from '../components/DataDummy/DataToping';
+import logowaysbuck from '../assets/img/logowaysbuck.png'
 
 export default function AuthModal() {
   const [show, setShow] = useState(false);
@@ -57,13 +57,23 @@ export default function AuthModal() {
 
   return (
     <>
-    <Button variant="primary" className='ms-2 me-2 bg-white border-danger text-danger' onClick={handleShow}>
-      Login
-    </Button>
-    <Button variant="danger" className='ms-2 me-5 bg-danger' onClick={handleShowRegister}>
-      Register
-    </Button>
-
+  <div className='navbar ms-5 me-5'   >
+    <div className='ms-5 mt-2'>
+        <img src={logowaysbuck}style={{cursor:'pointer'}}/>
+    </div>
+        <div className='detail-productPage d-flex me-3'>
+          <div className='d-flex'>
+            <Button variant="primary" className='ms-2 me-2 bg-white border-danger text-danger' onClick={handleShow}>
+              Login
+            </Button>
+          </div>
+          <div className='d-flex'>
+            <Button variant="danger" className='ms-2 me-5 bg-danger' onClick={handleShowRegister}>
+              Register
+            </Button>
+          </div>
+        </div>
+    </div>       
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title className='text-danger'>Login</Modal.Title>

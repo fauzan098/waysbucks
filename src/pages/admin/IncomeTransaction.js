@@ -1,24 +1,61 @@
-import React from 'react'
-import { Table } from 'react-bootstrap';
-import logowaysbuck from '../../assets/img/logowaysbuck.png'
-// import '../../styles/addproduct.css'
+import React, {useState} from 'react'
+import { Table, Button, Modal } from 'react-bootstrap';
 import '../../styles/tableIncomeTransaction.css'
-// import ProfilePhoto from '../../assets/img/profilephoto.png'
-import Profile from '../../assets/img/profile.png'
-// import NavbarAdmin from "../admin/NavbarAdmin";
+import Icecoffegreentea from '../../assets/img/icecoffegreentea.png'
+import Logowaysbuck from '../../assets/img/logowaysbuck.png'
+import Qrcode from '../../assets/img/qrcode.png'
+import NavbarAdmin from "../admin/navbarAdmin";
+import DataTransaction from "../../components/DataDummy/DataincomTransaction";
 
 export default function IncomeTransaction() {
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const[datas] = useState(DataTransaction)
+  console.log(datas);
+
   return (
     <>
-    <div className='navbar ms-5 me-5 mt-3 mb-3'>
-        <div className='ms-5 mt-2'>
-          <img src={logowaysbuck} />
-        </div>
-        <div className=''>
-          <img className='profile-photo float-right-end' src={Profile} />
-        </div>
-    </div>
-    {/* <NavbarAdmin/> */}
+        <Modal show={show} onHide={handleClose}>
+          <div className=''>
+                <div className='detailTransaction py-2 px-2 d-flex'>
+                    <div className=''>
+                        <div className='d-flex justify-content-center'>
+                            <div className='justify-content-center'>
+                              <p className='float-center'>
+                                <img className='img-drink justify-content-center' src={Icecoffegreentea} />
+                              </p>
+                            </div>
+                            <div className='ms-4'>
+                                <h4 style={{color :"#BD0707"}}>Ice coffe palm sugar</h4>
+                                <p className='text-danger'> <strong>Saturday</strong>, 5 march 2020</p>
+                                <p className='text-danger'> Toping &nbsp; : Bill Berry Boba, Bubble Tea Gelatin</p>
+                                <p className='text-danger'>Price : Rp.33.000</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='ms-4'>
+                        <div className='mb-2'>
+                            <img src={Logowaysbuck} style={{
+                              width: '48.04px',
+                              height: '47.75px'
+                            }} />
+                        </div>
+                            <img src={Qrcode} className='mt-2' style={{
+                              height: '74px;',
+                              width: '74px'
+                            }} />
+                        <div className='mt-2 ms-2'>
+                            <span>on the wayt</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Modal>
+    <NavbarAdmin/>
     <div className='title-product mb-5 mt-5'>
         <h2>Income Transaction</h2>
     </div>
@@ -35,38 +72,16 @@ export default function IncomeTransaction() {
           </tr>
         </thead>
         <tbody>
+          {datas.map(data => (
           <tr>
-            <td>1</td>
-            <td>Sugeng No Pants</td>
-            <td>Cileungsi</td>
-            <td>16820</td>
-            <td className='income'>69.000</td>
-            <td style={{color : '#FF9900'}}>Waiting Approve</td>
+            <td>{data.no}</td>
+            <td>{data.name}</td>
+            <td>{data.address}</td>
+            <td>{data.postcode}</td>
+            <td className='income'><p onClick={handleShow} style={{cursor:'pointer'}}>{data.income}</p></td>
+            <td className={`status-transaction-${data.status}`}>{data.status}</td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>Haris Gams</td>
-            <td>Serang</td>
-            <td>42111</td>
-            <td className='income'>30.000</td>
-            <td style={{color : '#78A85A'}}>Sucsess</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Ucok</td>
-            <td>Bekasi</td>
-            <td>13450</td>
-            <td className='income'>28.000</td>
-            <td style={{color : '#E83939'}}>cancel</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Lae Tanjung balai</td>
-            <td>Tanjung Balai</td>
-            <td>21331</td>
-            <td className='income'>30.000</td>
-            <td style={{color : '#00D1FF'}}>On The Way</td>
-          </tr>
+          ))}
         </tbody>
       </Table>
     </div>

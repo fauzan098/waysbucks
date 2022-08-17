@@ -1,23 +1,17 @@
 import React from 'react'
 import { Button,Form } from 'react-bootstrap';
-import logowaysbuck from '../../assets/img/logowaysbuck.png'
+
+import NavbarAdmin from './navbarAdmin';
+
+
 import '../../styles/addproduct.css'
-import ProfilePhoto from '../../assets/img/profilephoto.png'
-import Profile from '../../assets/img/profile.png'
 import drink1 from '../../assets/img/cleponcoffe.png'
 import ikonupload from '../../assets/img/ikon-upload.png'
 
 export default function addProduct() {
   return (
     <>
-    <div className='navbar ms-5 me-5 mt-3 mb-3'>
-        <div className='ms-5 mt-2'>
-          <img src={logowaysbuck} />
-        </div>
-        <div className=''>
-          <img className='profile-photo float-right-end rounded-circle' src={Profile} />
-        </div>
-    </div>
+        <NavbarAdmin/>
       <div className='page-add-product justify-content-center'>
         <div className='formPageProduct'>
           <div className='title-product '>

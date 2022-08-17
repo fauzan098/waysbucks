@@ -1,4 +1,5 @@
 import React, { useState, useContext, Component } from 'react'
+import NavbarUser from '../customer/navbarUser'
 import Landing from '../components/background'
 import "../styles/style.css"
 import { Card } from 'react-bootstrap'
@@ -27,6 +28,7 @@ export default function Home() {
           <img src={logowaysbuck} />
         </div> */}
         <div className='auth'>
+          {/* <NavbarUser/> */}
         <AuthModal />
         </div>
     <div className=''>
