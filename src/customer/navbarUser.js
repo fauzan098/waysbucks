@@ -9,7 +9,7 @@ import Logout from '../assets/img/logout1.svg'
 import User from '../assets/img/user.svg'
 import '../styles/style.css'
 
-export default function NavbarUser() {
+export default function NavbarUser({plusOne}) {
     const photoProfile = <img src={ProfilePhoto}/> 
     const logo = <img src={ProfilePhoto}/> 
 
@@ -20,10 +20,15 @@ export default function NavbarUser() {
   return (
   <>
   <div className='navbar ms-5'   >
-        <span class="badge rounded-circle bg-danger" style={{position:"absolute", top:"40px", right:"90px"}}> 
-                {/* {plusOne} */}
+        <span class="plusone badge rounded-circle bg-danger" 
+        style={{
+          position:"absolute",
+          top:"40px",
+          right:"155px",
+          width: "2rem"}}> 
+                {plusOne}
               <span class="visually-hidden">
-                  unread messages
+                  {/* {plusOne} */}
               </span> 
           </span>
     <div className='ms-4 mt-2'>

@@ -1,3 +1,5 @@
+
+
 .detail-productPage{
     margin-left: 20rem;
 }
@@ -43,4 +45,15 @@
     /* line-height: 19px; */
     margin-left: 1.7rem;
     color: #BD0707;
+}
+.poppingCheck:checked + label::after  {
+    content: url(../assets/img/checklist.png);
+    height: 12px;
+    border-radius: 10px;
+    /* position: absolute; */
+    /* position: sticky; */
+    /* position: relative; */
+    /* margin-left: 12px; */
+    top: 360px;
+    left: 749px;
 }

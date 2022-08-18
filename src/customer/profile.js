@@ -38,7 +38,7 @@ export default function Profile() {
                         <div>
                             <img className='img-drink' src={Icecoffegreentea} />
                         </div>
-                        <div className='ms-4'>
+                        <div className='ms-3'>
                             <h4 style={{color :"#BD0707"}}>Ice coffe palm sugar</h4>
                             <p className='text-danger'> <strong>Saturday</strong>, 5 march 2020</p>
                             <p className='text-danger'> Toping &nbsp; : Bill Berry Boba, Bubble Tea Gelatin</p>
