@@ -97,8 +97,17 @@
 }
 
 
-
-/* navbar css */
-/* .navbar .badge {
-    width: 4px ; 
-} */
+/* navbar img profile */
+.navbar .d-flex .imgProfile {
+    border-radius: 80px;
+    background: #73AD21;
+    padding: 0px;
+    width: 60px;
+    height: 60px;
+    border: 3px solid #bd2a2a;
+}
+.navbar .ms-5 .img-logo {
+    width: 55px;
+    height: 55px;
+    margin-top: 9px;
+}

@@ -6,6 +6,12 @@ import Logowaysbuck from '../../assets/img/logowaysbuck.png'
 import Qrcode from '../../assets/img/qrcode.png'
 import NavbarAdmin from "../admin/navbarAdmin";
 import DataTransaction from "../../components/DataDummy/DataincomTransaction";
+import Dummytransactions from "../../components/DataDummy/transactiocard";
+
+import Rp from "rupiah-format"
+
+
+import "../../styles/style.css"
 
 export default function IncomeTransaction() {
 
@@ -17,10 +23,46 @@ export default function IncomeTransaction() {
   const[datas] = useState(DataTransaction)
   console.log(datas);
 
+  const [ DummyProduct ] = useState(Dummytransactions)
+  console.log(DummyProduct)
+
+//   DummyProduct.forEach((item) => {
+//     total += item?.price
+// })
+
   return (
     <>
         <Modal show={show} onHide={handleClose}>
-          <div className=''>
+        <div className='d-flex rounded' style={{background: '#F7DADA'}}>
+                <div className='detailTransaction py-2 px-2'>
+                    {DummyProduct.map((item,index) => (
+                            <div className='d-flex'>
+                                <div>
+                                    <img className='img-drink' src={item?.image} />
+                                </div>
+                                <div className='ms-3'>
+                                    <h4 style={{color :"#BD0707"}}>{item?.name}</h4>
+                                    <p className='text-danger'> <strong>{item?.day}</strong>, {item?.date}</p>
+                                    <p className='text-danger'> Toping &nbsp; : {item?.toping}</p>
+                                    <p className='text-danger'>Price : {Rp.convert(item?.price)}</p>
+                                </div>
+                            </div>
+                     ))} 
+                </div>
+                    <div className='ms-4 py-2 px-2'>
+                        <div className='mb-2'>
+                            <img src={Logowaysbuck} />
+                        </div>
+                            <img src={Qrcode} />
+                        <div className='mt-2 ms-2'>
+                            <span>on the wayt</span>
+                        </div>
+                        <div className='mt-2 ms-2'>
+                            <span>12333</span>
+                        </div>
+                    </div>
+            </div>
+          {/* <div className=''>
                 <div className='detailTransaction py-2 px-2 d-flex'>
                     <div className=''>
                         <div className='d-flex justify-content-center'>
@@ -53,7 +95,7 @@ export default function IncomeTransaction() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </Modal>
     <NavbarAdmin/>
     <div className='title-product mb-5 mt-5'>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Row,Col,Button } from 'react-bootstrap'
 import NavbarUser from './navbarUser'
 import '../styles/detailProduct.css'
-// import Rp from "rupiah-format"
+import Rp from "rupiah-format"
 import { useParams } from 'react-router'
 import DummyDataToping from "../components/DataDummy/DataToping"
 import DummyDataDrink from "../components/DataDummy/DataDrink"
@@ -90,7 +90,7 @@ return (
         </div>
         <div className='title-detailProduct ms-3' style={{width:'40%'}} >
           <h2 className='ms-4' style={{color :'#BD0707'}}>{response?.name}</h2>
-          <p className='mt-3 mb-5 ms-4'>Rp.{response?.price}</p>
+          <p className='mt-3 mb-5 ms-4'>{Rp.convert(response.price)}</p>
           <div className='list-toping mt-5'>
             <h5>Toping</h5>
                 <div className='toping'>
@@ -119,7 +119,7 @@ return (
                       <Row className='justify-content-between mb-3 mt-5'>
                         <Col className='col-8 ms-4' style={{color: '#974A4A'}}><p>Total</p></Col>
                         <Col  className='col-2 me-3'>
-                          <p className='font-weight-bold'>{response.price+total}</p> 
+                          <p className='font-weight-bold fs-6'>{Rp.convert(response.price+total)}</p> 
                         </Col>
                       </Row>
                       <Button variant="danger" className='ms-4 mb-5' style={{width: '92%'}} onClick={handleOnIncrease}>Add Cart</Button>

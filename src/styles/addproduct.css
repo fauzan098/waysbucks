@@ -22,7 +22,7 @@
 .label-file-add-product img{
     /* right: 49rem; */
     margin-left: 37%;
-    top: 28.2rem;
+    top: 26.5rem;
     cursor: pointer;
 }
 .button-addProduct{
@@ -44,7 +44,7 @@
     margin-left: 9.5rem;
 }
 .imgProduct img{
-    width: 436px;
-    height: 555px;
+    width: 406px;
+    height: 450px;
     margin-left: 20%;
 }

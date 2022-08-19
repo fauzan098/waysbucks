@@ -50,10 +50,11 @@
     content: url(../assets/img/checklist.png);
     height: 12px;
     border-radius: 10px;
-    /* position: absolute; */
-    /* position: sticky; */
-    /* position: relative; */
-    /* margin-left: 12px; */
     top: 360px;
     left: 749px;
+}
+
+/* css total */
+.justify-content-between .col-2 .font-weight-bold {
+    width: 96px;
 }

@@ -1,5 +1,4 @@
 .profile{
-    /* background-color: antiquewhite; */
     width: 85%;
     margin: auto;
 }
@@ -12,6 +11,10 @@
 .myProfile .d-flex .detail-profile h5{
     color:#613D2B;
 }
+.profile .myProfile .d-flex .img-profile img {
+    width: 290px;
+    height: 221.79px;
+}
 .myTransaction h2{
     font-weight: 900;
     font-size: 24px;
@@ -21,8 +24,11 @@
 .myTransaction{
     margin-left: 10%;
 }
-.detailTransaction{
+.myTransaction .d-flex {
     background-color: #F7DADA;
+
+}
+.detailTransaction{
     border-radius: 10px;
 }
 .detailTransaction .img-drink {
